@@ -1,0 +1,9 @@
+{
+  "name": "flameplayer",
+  "version": "0.0.1",
+  "description": "A beautiful desktop music player application 🔥",
+  "main": "index.js",
+  "repository": "https://github.com/joshnwosu/flameplayer.git",
+  "author": "Joshua Nwosu <joshuanwosu078@gmail.com>",
+  "license": "MIT"
+}
