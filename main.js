@@ -12,6 +12,12 @@ function isDev() {
   return !app.isPackaged;
 }
 
+if (require('electron-is-dev')) {
+  require('electron-reload')(__dirname, {
+    electron: require(`${__dirname}/node_modules/electron`),
+  });
+}
+
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
@@ -22,8 +28,8 @@ function createWindow() {
     },
     // Use this in development mode.
     icon: isDev()
-      ? path.join(process.cwd(), 'public/flameplayer.png')
-      : path.join(__dirname, 'public/flameplayer.png'),
+      ? path.join(process.cwd(), 'public/flameplayer-03.png')
+      : path.join(__dirname, 'public/flameplayer-03.png'),
     // Use this in production mode.
     // icon: path.join(__dirname, 'public/favicon.png'),
     show: false,
