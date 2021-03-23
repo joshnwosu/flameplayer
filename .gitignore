@@ -1,4 +1,7 @@
 /node_modules/
 /public/build/
 
+# files
+ideas.txt
+
 .DS_Store
