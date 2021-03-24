@@ -1,40 +1,158 @@
-:root {
-    --text: rgba(215, 215, 215, 1);
-    --text-o-1: rgba(215, 215, 215, 0.1);
-    --text-o-2: rgba(215, 215, 215, 0.2);
-    --text-o-3: rgba(215, 215, 215, 0.3);
-    --text-o-4: rgba(215, 215, 215, 0.4);
-    --text-o-5: rgba(215, 215, 215, 0.5);
-    --text-o-6: rgba(215, 215, 215, 0.6);
-    --text-o-7: rgba(215, 215, 215, 0.7);
-    --text-o-8: rgba(215, 215, 215, 0.8);
-    --text-o-9: rgba(215, 215, 215, 0.9);
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+    list-style: none;
+    text-decoration: none;
+    user-select: none;
+}
 
-    --light-grey: rgba(119, 119, 119, 1);
-    --light-grey-o-1: rgba(119, 119, 119, 0.1);
-    --light-grey-o-2: rgba(119, 119, 119, 0.2);
-    --light-grey-o-3: rgba(119, 119, 119, 0.3);
-    --light-grey-o-4: rgba(119, 119, 119, 0.4);
-    --light-grey-o-5: rgba(119, 119, 119, 0.5);
-    --light-grey-o-6: rgba(119, 119, 119, 0.6);
-    --light-grey-o-7: rgba(119, 119, 119, 0.7);
-    --light-grey-o-8: rgba(119, 119, 119, 0.8);
-    --light-grey-o-9: rgba(119, 119, 119, 0.9);
+/* nunito-regular - latin */
+/* @font-face {
+    font-family: "Nunito";
+    font-style: normal;
+    font-weight: 400;
+    src: url("./assets/fonts/nunito-v16-latin/nunito-v16-latin-regular.eot");
+    src: local(""),
+        url("./assets/fonts/nunito-v16-latin/nunito-v16-latin-regular.eot?#iefix") format("embedded-opentype"),
+        url("./assets/fonts/nunito-v16-latin/nunito-v16-latin-regular.woff2") format("woff2"),
+        url("./assets/fonts/nunito-v16-latin/nunito-v16-latin-regular.woff") format("woff"),
+        url("./assets/fonts/nunito-v16-latin/nunito-v16-latin-regular.ttf") format("truetype"),
+        url("./assets/fonts/nunito-v16-latin/nunito-v16-latin-regular.svg#Nunito") format("svg");
+} */
 
-    --white: rgba(255, 255, 255, 1);
-    --white-o-1: rgba(255, 255, 255, 0.1);
-    --white-o-2: rgba(255, 255, 255, 0.2);
-    --white-o-3: rgba(255, 255, 255, 0.3);
-    --white-o-4: rgba(255, 255, 255, 0.4);
-    --white-o-5: rgba(255, 255, 255, 0.5);
-    --white-o-6: rgba(255, 255, 255, 0.6);
-    --white-o-7: rgba(255, 255, 255, 0.7);
-    --white-o-8: rgba(255, 255, 255, 0.8);
-    --white-o-9: rgba(255, 255, 255, 0.9);
+html,
+body {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
 
-    --box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+body {
+    font-family: "Nunito", Arial, Helvetica, sans-serif;
+    background-color: var(--nav);
+    color: var(--text);
+    overflow: hidden;
+}
 
-    --pin-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.32);
+button {
+    border: none;
+    background: transparent;
+}
 
-    --folder-progress-shadow: 0px -1px 10px 0 rgba(0, 0, 0, 0.2);
+::-webkit-scrollbar {
+    width: 4px;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 100%;
+    background-color: var(--primary);
+}
+
+body.color_one {
+    --primary: rgba(77, 200, 83, 1);
+    --primary-o-1: rgba(77, 200, 83, 0.1);
+    --primary-o-2: rgba(77, 200, 83, 0.2);
+    --primary-o-3: rgba(77, 200, 83, 0.3);
+    --primary-o-4: rgba(77, 200, 83, 0.4);
+    --primary-o-5: rgba(77, 200, 83, 0.5);
+    --primary-o-6: rgba(77, 200, 83, 0.6);
+    --primary-o-7: rgba(77, 200, 83, 0.7);
+    --primary-o-8: rgba(77, 200, 83, 0.8);
+    --primary-o-9: rgba(77, 200, 83, 0.9);
+}
+
+body.color_two {
+    --primary: rgba(247, 80, 82, 1);
+    --primary-o-1: rgba(247, 80, 82, 0.1);
+    --primary-o-2: rgba(247, 80, 82, 0.2);
+    --primary-o-3: rgba(247, 80, 82, 0.3);
+    --primary-o-4: rgba(247, 80, 82, 0.4);
+    --primary-o-5: rgba(247, 80, 82, 0.5);
+    --primary-o-6: rgba(247, 80, 82, 0.6);
+    --primary-o-7: rgba(247, 80, 82, 0.7);
+    --primary-o-8: rgba(247, 80, 82, 0.8);
+    --primary-o-9: rgba(247, 80, 82, 0.9);
+}
+
+body.color_three {
+    --primary: rgba(213, 52, 0, 1);
+    --primary-o-1: rgba(213, 52, 0, 0.1);
+    --primary-o-2: rgba(213, 52, 0, 0.2);
+    --primary-o-3: rgba(213, 52, 0, 0.3);
+    --primary-o-4: rgba(213, 52, 0, 0.4);
+    --primary-o-5: rgba(213, 52, 0, 0.5);
+    --primary-o-6: rgba(213, 52, 0, 0.6);
+    --primary-o-7: rgba(213, 52, 0, 0.7);
+    --primary-o-8: rgba(213, 52, 0, 0.8);
+    --primary-o-9: rgba(213, 52, 0, 0.9);
+}
+
+body.color_four {
+    --primary: rgb(246, 74, 129);
+    --primary-o-1: rgba(246, 74, 129, 0.1);
+    --primary-o-2: rgba(246, 74, 129, 0.2);
+    --primary-o-3: rgba(246, 74, 129, 0.3);
+    --primary-o-4: rgba(246, 74, 129, 0.4);
+    --primary-o-5: rgba(246, 74, 129, 0.5);
+    --primary-o-6: rgba(246, 74, 129, 0.6);
+    --primary-o-7: rgba(246, 74, 129, 0.7);
+    --primary-o-8: rgba(246, 74, 129, 0.8);
+    --primary-o-9: rgba(246, 74, 129, 0.9);
+}
+
+body.color_five {
+    --primary: rgb(198, 57, 97);
+    --primary-o-1: rgba(198, 57, 97, 0.1);
+    --primary-o-2: rgba(198, 57, 97, 0.2);
+    --primary-o-3: rgba(198, 57, 97, 0.3);
+    --primary-o-4: rgba(198, 57, 97, 0.4);
+    --primary-o-5: rgba(198, 57, 97, 0.5);
+    --primary-o-6: rgba(198, 57, 97, 0.6);
+    --primary-o-7: rgba(198, 57, 97, 0.7);
+    --primary-o-8: rgba(198, 57, 97, 0.8);
+    --primary-o-9: rgba(198, 57, 97, 0.9);
+}
+
+body.color_six {
+    --primary: rgb(226, 101, 250);
+    --primary-o-1: rgba(226, 101, 250, 0.1);
+    --primary-o-2: rgba(226, 101, 250, 0.2);
+    --primary-o-3: rgba(226, 101, 250, 0.3);
+    --primary-o-4: rgba(226, 101, 250, 0.4);
+    --primary-o-5: rgba(226, 101, 250, 0.5);
+    --primary-o-6: rgba(226, 101, 250, 0.6);
+    --primary-o-7: rgba(226, 101, 250, 0.7);
+    --primary-o-8: rgba(226, 101, 250, 0.8);
+    --primary-o-9: rgba(226, 101, 250, 0.9);
+}
+
+body.color_seven {
+    --primary: rgb(173, 96, 255);
+    --primary-o-1: rgba(173, 96, 255, 0.1);
+    --primary-o-2: rgba(173, 96, 255, 0.2);
+    --primary-o-3: rgba(173, 96, 255, 0.3);
+    --primary-o-4: rgba(173, 96, 255, 0.4);
+    --primary-o-5: rgba(173, 96, 255, 0.5);
+    --primary-o-6: rgba(173, 96, 255, 0.6);
+    --primary-o-7: rgba(173, 96, 255, 0.7);
+    --primary-o-8: rgba(173, 96, 255, 0.8);
+    --primary-o-9: rgba(173, 96, 255, 0.9);
+}
+
+body.color_eight {
+    --primary: rgb(125, 91, 255);
+    --primary-o-1: rgba(125, 91, 255, 0.1);
+    --primary-o-2: rgba(125, 91, 255, 0.2);
+    --primary-o-3: rgba(125, 91, 255, 0.3);
+    --primary-o-4: rgba(125, 91, 255, 0.4);
+    --primary-o-5: rgba(125, 91, 255, 0.5);
+    --primary-o-6: rgba(125, 91, 255, 0.6);
+    --primary-o-7: rgba(125, 91, 255, 0.7);
+    --primary-o-8: rgba(125, 91, 255, 0.8);
+    --primary-o-9: rgba(125, 91, 255, 0.9);
 }

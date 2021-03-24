@@ -1,0 +1,62 @@
+.main-header {
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+    border-bottom: 1px solid var(--black);
+    background-color: var(--nav);
+    z-index: 2;
+}
+
+.main-header .header-flex {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-header h3 {
+    text-transform: capitalize;
+    font-weight: 900;
+    color: var(--text);
+}
+
+.main-header .icon {
+    width: 20px;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.main-header .icon:hover svg {
+    fill: var(--text);
+}
+
+.main-header .icon.search-icon {
+    margin-left: 50px;
+    margin-right: 10px;
+}
+
+.main-header .icon svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--light-grey);
+}
+
+@media (max-width: 800px) {
+    .main-header {
+        padding: 10px 20px;
+    }
+}
+
+.content {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+}

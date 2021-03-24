@@ -1,0 +1,33 @@
+.addmusic {
+    border: 1px solid blue;
+}
+
+.addmusic {
+    border: none;
+    background-color: var(--primary-o-1);
+    color: var(--text);
+    font-size: 12px;
+    font-weight: 900;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: "Nunito", sans-serif;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.addmusic:hover {
+    background-color: var(--primary-o-3);
+}
+
+.addmusic svg {
+    margin-right: 10px;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+}
+
+.addmusic svg path {
+    fill: var(--text);
+}

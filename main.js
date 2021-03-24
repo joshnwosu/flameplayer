@@ -1,86 +1,98 @@
-// Modules to control application life and create native browser window
-const { app, BrowserWindow, dialog } = require('electron');
+const {
+  app,
+  BrowserWindow,
+  Menu,
+  screen,
+  dialog,
+  ipcMain,
+  remote,
+} = require('electron');
 const path = require('path');
-const serve = require('electron-serve');
-const loadURL = serve({ directory: 'public' });
+const url = require('url');
+const fs = require('fs');
+const storage = require('electron-json-storage');
+const isDev = require('electron-is-dev');
+storage.getDataPath();
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
-let mainWindow;
+let appIcon = null;
+let window = null;
 
-function isDev() {
-  return !app.isPackaged;
-}
-
-if (require('electron-is-dev')) {
+if (isDev) {
   require('electron-reload')(__dirname, {
     electron: require(`${__dirname}/node_modules/electron`),
   });
 }
 
-function createWindow() {
-  // Create the browser window.
-  mainWindow = new BrowserWindow({
-    width: 800,
+const createWindow = () => {
+  const { width, height } = screen.getPrimaryDisplay().workAreaSize;
+
+  // Menu.setApplicationMenu(false);
+
+  window = new BrowserWindow({
+    width: 1000,
     height: 600,
+    icon: __dirname + '/public/assets/images/flameplayer-03.png',
     webPreferences: {
+      contextIsolation: false,
       nodeIntegration: true,
+      enableRemoteModule: true,
+      backgroundThrottling: false,
     },
-    // Use this in development mode.
-    icon: isDev()
-      ? path.join(process.cwd(), 'public/flameplayer-03.png')
-      : path.join(__dirname, 'public/flameplayer-03.png'),
-    // Use this in production mode.
-    // icon: path.join(__dirname, 'public/favicon.png'),
-    show: false,
   });
 
-  // This block of code is intended for development purpose only.
-  // Delete this entire block of code when you are ready to package the application.
-  if (isDev()) {
-    mainWindow.loadURL('http://localhost:5000/');
-  } else {
-    loadURL(mainWindow);
+  window.loadURL(
+    url.format({
+      pathname: path.join(__dirname, 'public/index.html'),
+      protocol: 'file',
+      slashes: true,
+    })
+  );
+
+  if (isDev) window.webContents.openDevTools();
+
+  window.on('closed', (e) => {
+    window = null;
+  });
+
+  // set screen bounds
+  storage.set('config', { bound: window.getBounds() }, function (error) {
+    if (error) throw error;
+  });
+  // console.log(window.getBounds());
+};
+
+app.on('ready', () => {
+  createWindow();
+});
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit();
+    if (appIcon) appIcon.destroy();
   }
-
-  // Uncomment the following line of code when app is ready to be packaged.
-  // loadURL(mainWindow);
-
-  // Open the DevTools and also disable Electron Security Warning.
-  // process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
-  // mainWindow.webContents.openDevTools();
-
-  // Emitted when the window is closed.
-  mainWindow.on('closed', function () {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
-    mainWindow = null;
-  });
-
-  // Emitted when the window is ready to be shown
-  // This helps in showing the window gracefully.
-  mainWindow.once('ready-to-show', () => {
-    mainWindow.show();
-  });
-}
-
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
-
-// Quit when all windows are closed.
-app.on('window-all-closed', function () {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
-  if (process.platform !== 'darwin') app.quit();
 });
 
-app.on('activate', function () {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
-  if (mainWindow === null) createWindow();
+app.on('activate', () => {
+  if (window === null) {
+    createWindow();
+  }
 });
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+
+// Open file dialog
+ipcMain.on('open-file-dialog', function (event) {
+  dialog
+    .showOpenDialog(window, {
+      properties: ['openDirectory'],
+    })
+    .then(
+      (result) => {
+        const filePath = result.filePaths[0];
+        if (filePath) {
+          event.sender.send('selectedItem', filePath);
+        }
+      },
+      (error) => {
+        throw error;
+      }
+    );
+});
