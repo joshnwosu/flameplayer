@@ -6,6 +6,7 @@
 
   import { SignalIcon, SongIcon, FolderOutlineIcon } from "../Icons";
   import Header from "../Header/Header.svelte";
+  import { toggleNavbar } from "../../store/clickFunc";
 
   const navItems = [
     {
@@ -32,7 +33,7 @@
   };
 </script>
 
-<div class="navbar">
+<div class="navbar" class:toggle-navbar={$toggleNavbar}>
   <div class="nav-item-header">Browse Files</div>
   {#each navItems as item}
     <div
