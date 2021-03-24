@@ -1,0 +1,40 @@
+:root {
+    --text: rgba(215, 215, 215, 1);
+    --text-o-1: rgba(215, 215, 215, 0.1);
+    --text-o-2: rgba(215, 215, 215, 0.2);
+    --text-o-3: rgba(215, 215, 215, 0.3);
+    --text-o-4: rgba(215, 215, 215, 0.4);
+    --text-o-5: rgba(215, 215, 215, 0.5);
+    --text-o-6: rgba(215, 215, 215, 0.6);
+    --text-o-7: rgba(215, 215, 215, 0.7);
+    --text-o-8: rgba(215, 215, 215, 0.8);
+    --text-o-9: rgba(215, 215, 215, 0.9);
+
+    --light-grey: rgba(119, 119, 119, 1);
+    --light-grey-o-1: rgba(119, 119, 119, 0.1);
+    --light-grey-o-2: rgba(119, 119, 119, 0.2);
+    --light-grey-o-3: rgba(119, 119, 119, 0.3);
+    --light-grey-o-4: rgba(119, 119, 119, 0.4);
+    --light-grey-o-5: rgba(119, 119, 119, 0.5);
+    --light-grey-o-6: rgba(119, 119, 119, 0.6);
+    --light-grey-o-7: rgba(119, 119, 119, 0.7);
+    --light-grey-o-8: rgba(119, 119, 119, 0.8);
+    --light-grey-o-9: rgba(119, 119, 119, 0.9);
+
+    --white: rgba(255, 255, 255, 1);
+    --white-o-1: rgba(255, 255, 255, 0.1);
+    --white-o-2: rgba(255, 255, 255, 0.2);
+    --white-o-3: rgba(255, 255, 255, 0.3);
+    --white-o-4: rgba(255, 255, 255, 0.4);
+    --white-o-5: rgba(255, 255, 255, 0.5);
+    --white-o-6: rgba(255, 255, 255, 0.6);
+    --white-o-7: rgba(255, 255, 255, 0.7);
+    --white-o-8: rgba(255, 255, 255, 0.8);
+    --white-o-9: rgba(255, 255, 255, 0.9);
+
+    --box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+
+    --pin-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.32);
+
+    --folder-progress-shadow: 0px -1px 10px 0 rgba(0, 0, 0, 0.2);
+}
